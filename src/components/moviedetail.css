@@ -1,14 +1,21 @@
 .movie_card {
   width: 10rem;
   background: rgb(100, 98, 98);
-  transition: transform 0.2s;
+  transition: transform 0.3s;
   margin-bottom: 30px !important;
 }
 /* .card_body {
 } */
 .movie_title {
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 700;
   color: rgb(167, 167, 167);
+}
+.movie_year {
+  font-size: 13px;
+}
+.movie_type {
+  font-size: 13px;
 }
 .movie_card:hover {
   transform: scale(1.05);
