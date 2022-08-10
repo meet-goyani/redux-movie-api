@@ -7,11 +7,22 @@ import {
   removeMovieOrShows,
 } from "../features/movies/movieSlice";
 export default function MovieShow() {
+  const { imdbID } = useParams();
+  const dispatch = useDispatch();
+  const data = useSelector(getAllMoviOrShows);
+  // console.log(data);
+  useEffect(() => {
+    dispatch(fetchAyncMovieOrShows(imdbID));
+    return () => {
+      removeMovieOrShows();
+    };
+  }, [dispatch, imdbID]);
+
   return (
     <>
       <div className="movie_show container text-white">
         <h2>Movie Show</h2>
-        <div className="d-flex ">
+        <div classNam e="d-flex ">
           <div className="col-md-8">
             <div className="movie_detail">
               <h3 className="text-muted">{data.Title}</h3>
