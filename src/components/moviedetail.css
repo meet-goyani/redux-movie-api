@@ -1,7 +1,7 @@
 .movie_card {
   width: 10rem;
   background: rgb(100, 98, 98);
-  transition: transform 0.3s;
+  transition: all 0.3s;
   margin-bottom: 30px !important;
 }
 /* .card_body {

@@ -1,23 +1,57 @@
-import React from "react";
-import { Card } from "react-bootstrap";
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import {
+  fetchAyncMovieOrShows,
+  getAllMoviOrShows,
+  removeMovieOrShows,
+} from "../features/movies/movieSlice";
 export default function MovieShow() {
   return (
     <>
-      <div className="movie_show container">
+      <div className="movie_show container text-white">
         <h2>Movie Show</h2>
-        <Card className="bg-dark text-white">
-          <Card.Img src="holder.js/100px270" alt="Card image" />
-          <Card.ImgOverlay>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-            <Card.Text>Last updated 3 mins ago</Card.Text>
-          </Card.ImgOverlay>
-        </Card>
+        <div className="d-flex ">
+          <div className="col-md-8">
+            <div className="movie_detail">
+              <h3 className="text-muted">{data.Title}</h3>
+              <div className="d-flex">
+                <p className="m-4">IMDB Rating:{data.imdbRating}</p>
+                <p className="m-4">IMDB Votes:{data.imdbVotes}</p>
+                <p className="m-4">Runtime:{data.Runtime}</p>
+                <p className="m-4">Released:{data.Released}</p>
+              </div>
+              <div className="content">
+                <p>{data.Plot}</p>
+                <div className="detail">
+                  <p className="h6">
+                    Language:
+                    <span className="text-muted">{data.Language}</span>
+                  </p>
+                  <p className="h6">
+                    Director:
+                    <span className="text-muted">{data.Director}</span>
+                  </p>
+                  <p className="h6">
+                    Writer:
+                    <span className="text-muted">{data.Writer}</span>
+                  </p>
+                  <p className="h6">
+                    Country:
+                    <span className="text-muted">{data.Country}</span>
+                  </p>
+                  <p className="h6">
+                    BoxOffice:
+                    <span className="text-muted">{data.BoxOffice}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4 d-flex justify-content-center">
+            <img src={data.Poster} alt={data.Title} />
+          </div>
+        </div>
       </div>
     </>
   );
